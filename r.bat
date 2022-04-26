@@ -1,1 +1,2 @@
-npm run start
+mysqladmin -u root shutdown
+mysqld --console

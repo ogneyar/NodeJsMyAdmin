@@ -1,7 +1,7 @@
 {
   "name": "nodejsmyadmin",
-  "version": "0.0.2",
-  "description": "Admin Page Database for MySQL",
+  "version": "0.0.3",
+  "description": "Database Administrator page on NodeJS",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"

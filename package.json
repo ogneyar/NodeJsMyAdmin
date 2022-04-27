@@ -1,6 +1,6 @@
 {
   "name": "nodejsmyadmin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Database Administrator page on NodeJS",
   "main": "index.js",
   "scripts": {

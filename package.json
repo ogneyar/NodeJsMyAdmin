@@ -1,10 +1,13 @@
 {
   "name": "nodejsmyadmin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Database Administrator page on NodeJS",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
+  },
+  "bin": {
+    "njma": "./bin/njma.js"
   },
   "keywords": [],
   "author": "",

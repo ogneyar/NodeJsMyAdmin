@@ -14,6 +14,10 @@ To work with NJMA, you need to have a locally installed database and just run "n
 Install the package globally using [npm](http://npmjs.org ) (recommended method):
 
 ```bash
+npm install -g njma
+```
+or
+```bash
 npm install -g nodejsmyadmin
 ```
 
@@ -21,6 +25,10 @@ And NJMA will be installed globally to your system path.
 
 You can also install NJMA as a development dependency:
 
+```bash
+npm install --save-dev njma
+```
+or
 ```bash
 npm install --save-dev nodejsmyadmin
 ```
@@ -35,3 +43,18 @@ njma
 ```
 
 With a local installation, NJMA will not be available in your system path or you can't use it directly from the command line. Instead, the local installation of NJMA can be run by calling it from within an npm script (such as `npm start`).
+
+
+```json
+{
+    "scripts": {
+        "start": "njma"
+    }
+}
+```
+
+after that, run:
+
+```bash
+npm run start
+```

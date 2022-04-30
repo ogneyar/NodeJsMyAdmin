@@ -6,4 +6,4 @@ require('..')
 
 exec(`start http://localhost:${PORT}`, () => {})
 
-console.log("njma run")
+console.log("njma run\r\n")

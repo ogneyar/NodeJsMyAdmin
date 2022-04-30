@@ -1,6 +1,5 @@
 node_modules
 .env
 package-lock.json
-r.bat
 dump.bat
 load_dump.bat

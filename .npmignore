@@ -2,3 +2,5 @@ r.bat
 s.bat
 package-lock.json
 .env
+dump.bat
+load_dump.bat

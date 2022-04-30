@@ -16,10 +16,6 @@ Install the package globally using [npm](http://npmjs.org ) (recommended method)
 ```bash
 npm install -g njma
 ```
-or
-```bash
-npm install -g nodejsmyadmin
-```
 
 And NJMA will be installed globally to your system path.
 
@@ -27,10 +23,6 @@ You can also install NJMA as a development dependency:
 
 ```bash
 npm install --save-dev njma
-```
-or
-```bash
-npm install --save-dev nodejsmyadmin
 ```
 
 

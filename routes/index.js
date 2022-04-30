@@ -1,14 +1,18 @@
 const Router = require('express')
-const router = new Router()
-const authRouter = require('./authRouter')
+const path = require('path')
 
-router.get('/', (req, res) => {
-    res.redirect('/auth')
-})
-router.get('/start', (req, res) => {
-    res.send("NodeJsMyAdmin - приветствует тебя!")
-})
+const authRouter = require('./authRouter')
+const mainRouter = require('./mainRouter')
+const apiRouter = require('./apiRouter')
+
+const router = new Router()
+
+
+router.get('/', (req, res) => res.redirect('/auth'))
 
 router.use('/auth', authRouter)
+router.use('/main', mainRouter)
+router.use('/api', apiRouter)
+
 
 module.exports = router

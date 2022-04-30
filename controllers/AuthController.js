@@ -1,8 +1,11 @@
 
+const path = require('path')
+
+
 class AuthController {
     async auth(req, res, next) {
-        
-        return res.redirect('/start')
+                
+        return res.sendFile(path.join(__dirname,'..','static', 'pages', 'auth.html'))
     }
 }
 

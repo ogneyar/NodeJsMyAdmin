@@ -1,4 +1,4 @@
-# NodeJsMyAdmin
+# NodeJsMyAdmin (still in the process of development)
 
 <!-- <p align="center">
   <img src="#" alt="NodeJsMyAdmin Logo">

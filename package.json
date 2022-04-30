@@ -1,16 +1,20 @@
 {
   "name": "nodejsmyadmin",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Database Administrator page on NodeJS",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "start http://localhost:8800 & nodemon index.js"
   },
   "bin": {
     "njma": "./bin/njma.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "NodeJsMyAdmin",
+    "njma",
+    "Database admin page"
+  ],
+  "author": "Ogneyar",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",

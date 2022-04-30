@@ -3,8 +3,8 @@ const express = require('express')
 const sequelize = require('./db')
 const router = require('./routes')
 const path = require('path')
-const PORT = process.env.PORT || 8800
-const { exec } = require("child_process")
+const PORT = 8800
+// const { exec } = require("child_process")
 
 const app = express()
 app.use(express.json())
@@ -17,7 +17,7 @@ const start = async () => {
         await sequelize.sync() 
         app.listen(PORT, () => {
             console.log(`Server run: http://localhost:${PORT}`)
-            exec(`start http://localhost:${PORT}`, () => {})
+            // exec(`start http://localhost:${PORT}`, () => {})
         })
     }catch (e) {
         console.log(e)

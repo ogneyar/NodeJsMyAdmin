@@ -1,9 +1,12 @@
 
-const db = require('../../../db')
+// const db = require('../../../db')
+const conector = require('../../../db')
 
 
 // showDatabases
-async function showDatabases() {
+async function showDatabases(user, password, host) {
+
+    let db = conector(user, password, host)
 
     let response = { ok: false }
 
@@ -25,7 +28,7 @@ async function showDatabases() {
 
     }catch(error) {
         
-        console.log(error)
+        console.log(JSON.stringify(error))
         response.error = error
 
     }

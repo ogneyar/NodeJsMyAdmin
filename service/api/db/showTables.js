@@ -1,16 +1,22 @@
 
-const db = require('../../../db')
+// const db = require('../../../db')
+const conector = require('../../../db')
 const showDatabases = require('./showDatabases')
 
 
-// showTables
-async function showTables(name) {
-
-    if ( ! name ) return { ok: false, error: "Отсутствует query параметр name." }
-
+/* 
+// name - database name
+// user - user name
+// pass - user password
+// host - by default = "localhost"
+*/
+async function showTables(name, user, pass, host = "") {
+    
+    if ( ! name ) return { ok: false, error: "Отсутствует параметр name." + user }
+    
     let response
 
-    response = await showDatabases()
+    response = await showDatabases(user, pass, host)
     if ( ! response.ok ) return response
 
     const databases = response.result
@@ -19,6 +25,8 @@ async function showTables(name) {
         if (i === name) yes = true
     })
     if ( ! yes ) return { ok: false, error: `Отсутствует база данных - ${name}.` }
+    
+    let db = conector(user, pass, host)
 
     try {
 
@@ -43,7 +51,7 @@ async function showTables(name) {
         })
 
     }catch(error) {
-        console.log(error)
+        console.log(JSON.stringify(error))
         response.error = error
     }
      

@@ -3,8 +3,8 @@ const router = new Router()
 const DbController = require('../../controllers/api/DbController')
 
 
-router.get('/', DbController.getAll)
-router.get('/select', DbController.select)
+router.post('/', DbController.getAll)
+router.post('/select', DbController.select)
 
 
 module.exports = router

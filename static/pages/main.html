@@ -4,106 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
     <title>NJMA</title>
-    <style>
-        :root {
-            --main-grey-color: #6d6f71; /* 109 111 113 */
-            --main-orange-color: #ff9900; /* 255 153 0 */
-            --main-silver-color: #d1d1d1;
-            --main-white-color: #f3f3f3; /* 243 243 243 */
-            --main-black-color: #0e0e0e; /* 14 14 14 */
-            --main-red-color: #b31111; /* 179 17 17 */
-        }
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        body {
-            display: flex;
-            width: 100%;
-            height: 100%;
-        }
-        .left_wrapper {
-            width: 20vw;
-            height: 100vh;
-            border: 1px solid grey;
-        }
-        #njma_db {
-            width: 100%;
-            border-bottom: 1px solid grey;
-        }
-        #njma_db_selected {
-            width: 100%;
-        }
-        #njma_page {
-            width: 80vw;
-            height: 100vh;
-        }
-        .db_item,
-        .db_selected_item {
-            padding: 5px 20px;
-        }
-    </style>
 </head>
 <body>
     <div class="left_wrapper">
-        <div id="njma_db"></div>
+        <button class="buttonExit" onclick="onClickExit()">Выход</button>
+        <div id="njma_db">
+        </div>
         <div id="njma_db_selected"></div>
     </div>
     <div id="njma_page"></div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
-            let response
-
-            let njma_db = document.getElementById("njma_db")
-
-            response = await fetch("/api/db")
-            if (response.ok) {
-                let json = await response.json()
-
-                if (json.ok) {
-                    json.result.forEach(i => {
-                        let div = document.createElement('div')
-                        div.className = "db_item"
-                        div.innerHTML = `<strong>${i}</strong>`
-                        div.onclick = () => onClickDbSelected(i)
-                        njma_db.append(div)
-                    })
-                }else {
-                    alert(JSON.stringify(json.error))
-                }
-            } else {
-                alert("Ошибка HTTP: " + response.status)
-            }
-
-
-            const onClickDbSelected = async (name) => {
-
-                let njma_db_selected = document.getElementById("njma_db_selected")
-                njma_db_selected.innerHTML = ""
-
-                let response = await fetch(`/api/db/select?name=${name}`)
-                if (response.ok) {
-                    let json = await response.json()
-
-                    if (json.ok) {
-                        json.result.forEach(i => {
-                            let div = document.createElement('div')
-                            div.className = "db_selected_item"
-                            div.innerHTML = `<strong>${i}</strong>`
-                            njma_db_selected.append(div)
-                        })
-                    }else {
-                        alert(JSON.stringify(json.error))
-                    }
-                } else {
-                    alert("Ошибка HTTP: " + response.status)
-                }
-            }
-
-        })
-    </script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>

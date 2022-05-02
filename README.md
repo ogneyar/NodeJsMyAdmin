@@ -54,7 +54,6 @@ npm run start
 
 If you create a .env file in the root directory and put user and password data in it, then there will be no need to enter this data every time you log in.
 
-.env
 ```env
 DB_USER=user_name
 DB_PASS=password

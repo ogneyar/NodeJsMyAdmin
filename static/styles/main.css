@@ -1,0 +1,39 @@
+
+@import url("header.css");
+
+/* --- --- --- */
+.left_wrapper {
+    width: 20vw;
+    height: 100vh;
+    border: 1px solid grey;
+}
+.buttonExit {
+    cursor: pointer;
+    margin: 2px;
+}
+#njma_db,
+#njma_db_selected {
+    width: 100%;
+    cursor: pointer;
+}
+/* #njma_db_selected {} */
+#njma_db {
+    border-bottom: 1px solid grey;
+}
+#njma_page {
+    width: 80vw;
+    height: 100vh;
+}
+.db_item,
+.db_selected_item {
+    padding: 5px 20px;
+}
+@media(max-width: 720px) {
+    .left_wrapper {
+        width: 30vw;
+    }
+    #njma_page {
+        width: 70vw;
+    }
+}
+/* --- --- --- */

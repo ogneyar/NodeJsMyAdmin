@@ -1,12 +1,17 @@
 
-document.addEventListener("DOMContentLoaded", async () => {
+// import parseRequestParams from "../../service/parseRequestParams.js"
+// const parseRequestParams = require("../../service/parseRequestParams.js")
 
+document.addEventListener("DOMContentLoaded", async () => {
+    
     let njma_user_name = localStorage.getItem('njma_user_name')
-    // let njma_user_pass = localStorage.getItem('njma_user_pass')
+    // если есть сохранённые данные о пользователе
     if (njma_user_name) {
         location.href = "main"
         return null
-    }else {
+    // иначе если нет параметра without_dot_env в запросе (http://localhost:3465?without_dot_env=true)
+    }else if ( ! parseRequestParams().without_dot_env ) { // если есть то пропустить аутентификацию на сервере
+        
         let response = await fetch("/api/auth", { method: 'post' })
         if (response.ok) {
             let json = await response.json()
@@ -24,8 +29,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             alert("Ошибка HTTP: " + response.status)
         }
 
-        document.getElementById("loader").style.display = "none"
     }
+
+    document.getElementById("loader").style.display = "none"
     
 })
 
@@ -41,4 +47,19 @@ const onClickButtonEnter = async () => {
 
     location.href="main"
     
+}
+
+// парсер параметров в запросе
+const parseRequestParams = () => {
+
+    let search = window.location.search.replace("?", "").split("&")
+    let object = {}
+
+    if (Array.isArray(search)) { 
+        search.forEach(i => { 
+            object[`${i.split("=")[0]}`] = i.split("=")[1] 
+        }) 
+    }
+
+    return object
 }

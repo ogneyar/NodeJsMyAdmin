@@ -2,7 +2,7 @@
 const onClickExit = () => {
     localStorage.removeItem('njma_user_name')
     localStorage.removeItem('njma_user_pass')
-    location.href = location.protocol + "//" + location.host;
+    location.href = `${location.protocol}//${location.host}?without_dot_env=true`;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {

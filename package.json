@@ -1,6 +1,6 @@
 {
   "name": "njma",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "NodeJsMyAdmin - database administrator page on NodeJS",
   "main": "index.js",
   "scripts": {

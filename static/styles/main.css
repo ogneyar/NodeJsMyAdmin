@@ -25,8 +25,17 @@
     height: 100vh;
 }
 .db_item,
-.db_selected_item {
+.db_selected_item,
+.table_selected_item {
     padding: 5px 20px;
+}
+.db_item p,
+.db_selected_item p {
+    font-weight: 300;
+}
+.db_item.active p,
+.db_selected_item.active p {
+    font-weight: 700;
 }
 @media(max-width: 720px) {
     .left_wrapper {

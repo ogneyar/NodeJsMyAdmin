@@ -1,8 +1,8 @@
 # NodeJsMyAdmin (still in the process of development)
 
-<!-- <p align="center">
-  <img src="#" alt="NodeJsMyAdmin Logo">
-</p> -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ogneyar/NodeJsMyAdmin/master/static/images/NJMA%20logo.bmp" alt="NodeJsMyAdmin Logo" width="120px" >
+</p>
 
 NodeJsMyAdmin (NJMA) is a tool that helps to develop Node.js applications using databases. NJMA is the database administrator page.
 

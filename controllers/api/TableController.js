@@ -10,7 +10,7 @@ class TableController {
         let response = await showRows(name, db_name, user, pass, host)
 
         res.send(response)
-        // return true
+        return true
     }
 }
 

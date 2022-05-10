@@ -6,6 +6,7 @@ const onClickExit = () => {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+    
     let response
 
     let njma_user_name = localStorage.getItem('njma_user_name')

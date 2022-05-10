@@ -11,22 +11,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         return null
     // иначе если нет параметра without_dot_env в запросе (http://localhost:3465?without_dot_env=true)
     }else if ( ! parseRequestParams().without_dot_env ) { // если есть то пропустить аутентификацию на сервере
-        
-        let response = await fetch("/api/auth", { method: 'get' })
-        if (response.ok) {
-            let json = await response.json()
-            if (json.ok) { 
-                let { user, pass } = json.result
-                localStorage.setItem('njma_user_name', user)
-                localStorage.setItem('njma_user_pass', pass)
+        try{    
+            // alert(document.readyState)
+            let response = await fetch("/api/auth", { method: 'get' })
+            if (response.ok) {
+                let json = await response.json()
+                if (json.ok) { 
+                    let { user, pass } = json.result
+                    localStorage.setItem('njma_user_name', user)
+                    localStorage.setItem('njma_user_pass', pass)
 
-                location.href = "main"
-                return null
-            }else {
-                console.log(JSON.stringify(json.error))
+                    location.href = "main"
+                    return null
+                }else {
+                    console.log(JSON.stringify(json.error))
+                }
+            } else {
+                alert("Ошибка HTTP: " + response.status)
             }
-        } else {
-            alert("Ошибка HTTP: " + response.status)
+        }catch(err) {
+            alert("Ошибка: " + err.toString())
         }
 
     }

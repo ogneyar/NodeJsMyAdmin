@@ -5,12 +5,12 @@ class AuthController {
 
     async auth(req, res) {
         res.send(authentication())
-        // return true
+        return true
     }
 
     async logIn(req, res) {
         res.send("test")
-        // return true
+        return true
     }
 }
 

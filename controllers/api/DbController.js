@@ -9,7 +9,7 @@ class DbController {
         let response = await showDatabases(user, pass, host)
 
         res.send(response)
-        // return true
+        return true
     }
 
     async select(req, res) {
@@ -18,7 +18,7 @@ class DbController {
         let response = await showTables(name, user, pass, host)
 
         res.send(response)
-        // return true
+        return true
     }
 }
 

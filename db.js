@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('./lib/dotenv')
 const mysql = require("mysql2")
 
 module.exports = (user, password = "", host = "localhost") => {

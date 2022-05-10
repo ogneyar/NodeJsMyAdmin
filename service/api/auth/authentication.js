@@ -1,5 +1,5 @@
 
-require('dotenv').config()
+require('../../../lib/dotenv')
 
 // authentication
 module.exports = () => {

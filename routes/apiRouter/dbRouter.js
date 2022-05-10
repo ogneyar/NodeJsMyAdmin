@@ -1,10 +1,10 @@
-const Router = require('express')
+const Router = require('../../lib/Router')
 const router = new Router()
 const DbController = require('../../controllers/api/DbController')
 
 
-router.post('/', DbController.getAll)
-router.post('/select', DbController.select)
+router.get('/', DbController.getAll)
+router.get('/select', DbController.select)
 
 
 module.exports = router

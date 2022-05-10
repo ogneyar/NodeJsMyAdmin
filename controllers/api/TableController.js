@@ -4,12 +4,13 @@ const showRows = require('../../service/api/table/showRows')
 
 
 class TableController {
-    async select(req, res, next) {
+    async select(req, res) {
         // name = table name
-        let { name, db_name, user, pass, host } = req.body // JSON.parse(req.body)
+        let { name, db_name, user, pass, host } = req.params // JSON.parse(req.body)
         let response = await showRows(name, db_name, user, pass, host)
 
-        return next(res.send(response))
+        res.send(response)
+        // return true
     }
 }
 

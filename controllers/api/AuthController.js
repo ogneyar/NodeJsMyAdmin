@@ -3,12 +3,14 @@ const authentication = require("../../service/api/auth/authentication")
 
 class AuthController {
 
-    async auth(req, res, next) {
-        return next(res.send(authentication()))
+    async auth(req, res) {
+        res.send(authentication())
+        // return true
     }
 
-    async logIn(req, res, next) {
-        return res.send("test")
+    async logIn(req, res) {
+        res.send("test")
+        // return true
     }
 }
 

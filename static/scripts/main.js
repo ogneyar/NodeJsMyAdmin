@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         user: njma_user_name,
         pass: njma_user_pass
     })
-    response = await fetch("/api/db", {
-        method: "post",
-        headers: { 'Content-Type': 'application/json;charset=utf-8' },
-        body
+    response = await fetch("/api/db" + `?user=${njma_user_name}&pass=${njma_user_pass}`, {
+        method: "get",
+        // headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        // body
     })
     if (response.ok) {
         let json = await response.json()
@@ -73,10 +73,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             user: njma_user_name,
             pass: njma_user_pass
         })
-        let response = await fetch("/api/db/select", {
-            method: "post",
-            headers: { 'Content-Type': 'application/json;charset=utf-8' },
-            body
+        let response = await fetch("/api/db/select" + `?name=${name}&user=${njma_user_name}&pass=${njma_user_pass}`, {
+            method: "get",
+            // headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            // body
         })
         if (response.ok) {
             let json = await response.json()
@@ -117,10 +117,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             user: njma_user_name,
             pass: njma_user_pass
         })
-        let response = await fetch("/api/table/select", {
-            method: "post",
-            headers: { 'Content-Type': 'application/json;charset=utf-8' },
-            body
+        let response = await fetch("/api/table/select" + `?name=${name}&db_name=${njma_db_name}&user=${njma_user_name}&pass=${njma_user_pass}`, {
+            method: "get",
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            // body
         })
         if (response.ok) {
             let json = await response.json()

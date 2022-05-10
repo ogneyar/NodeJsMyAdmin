@@ -1,6 +1,6 @@
 {
   "name": "njma",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "NodeJsMyAdmin - database administrator page on NodeJS",
   "main": "index.js",
   "scripts": {
@@ -17,8 +17,6 @@
   "author": "Ogneyar",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "mysql2": "^2.2.5"
   },
   "devDependencies": {

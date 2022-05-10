@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // иначе если нет параметра without_dot_env в запросе (http://localhost:3465?without_dot_env=true)
     }else if ( ! parseRequestParams().without_dot_env ) { // если есть то пропустить аутентификацию на сервере
         
-        let response = await fetch("/api/auth", { method: 'post' })
+        let response = await fetch("/api/auth", { method: 'get' })
         if (response.ok) {
             let json = await response.json()
             if (json.ok) { 

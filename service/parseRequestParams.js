@@ -2,7 +2,7 @@
 // parseRequestParams
 // ?test=true&temp=false  =>  { test: true, temp: false }
 // const parseRequestParams = () => {
-module.exports = () => {
+export default () => {
 
     let search = window.location.search.replace("?", "").split("&")
     // alert("search")

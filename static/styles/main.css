@@ -3,8 +3,9 @@
 /* --- --- --- */
 .left_wrapper {
     width: 20vw;
-    height: 100vh;
-    border: 1px solid grey;
+    min-height: 100vh;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
 }
 .buttonExit {
     cursor: pointer;

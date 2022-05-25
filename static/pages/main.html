@@ -11,10 +11,27 @@
     <div class="left_wrapper">
         <!-- the onClickExit() function is located in the file "scripts/main.js" -->
         <button class="buttonExit" onclick="onClickExit()">Выход</button>
+
         <div id="njma_db"></div>
+
         <div id="njma_db_selected"></div>
+
     </div>
-    <div id="njma_page"></div>
-    <script src="scripts/main.js"></script>
+    <div class="wrapper">
+        <div class="njma_page_header">
+            <br />
+            <input 
+                id="limit"
+                disabled
+                type="text" 
+                value="10"
+            />
+            <span> - количество отображаемых строк на странице</span>
+        </div>
+        
+        <div id="njma_page"></div>
+
+    </div>
+    <script src="scripts/main.js"></script> 
 </body>
 </html>

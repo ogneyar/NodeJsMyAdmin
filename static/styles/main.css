@@ -25,8 +25,7 @@
     height: 100vh;
 }
 .db_item,
-.db_selected_item,
-.table_selected_item {
+.db_selected_item {
     padding: 5px 20px;
 }
 .db_item p,
@@ -46,3 +45,27 @@
     }
 }
 /* --- --- --- */
+
+#njma_page {
+    margin: 5px 10px;
+}
+
+.table_selected_item td {
+    text-align: center;
+    border: 1px solid lightgrey;
+    padding: 5px 20px;
+}
+
+#njma_page {
+    /* padding-top: 100px; */
+}
+
+.njma_page_header {
+    padding: 10px;
+}
+
+.njma_page_header input {
+    text-align: center;
+    width: 50px;
+    padding: 2px 10px;
+}

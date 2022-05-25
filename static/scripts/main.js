@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     //     pass: njma_user_pass
     // })
     
-    let xhr = new XMLHttpRequest()
+    let xhr = new XMLHttpRequest() 
     // xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8')
     xhr.open('GET', "/api/db" + `?user=${njma_user_name}&pass=${njma_user_pass}`, false)
     xhr.send()
@@ -147,11 +147,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         //     user: njma_user_name,
         //     pass: njma_user_pass
         // })
-        let response = await fetch("/api/table/select" + `?name=${name}&db_name=${njma_db_name}&user=${njma_user_name}&pass=${njma_user_pass}`, {
-            method: "get",
-            headers: { 'Content-Type': 'application/json; charset=utf-8' },
-            // body
-        })
+        
+        let limit = document.getElementById("limit")
+        let njma_limit = limit.value
+
+        let response = await fetch("/api/table/select" + `?name=${name}&db_name=${njma_db_name}&limit=${njma_limit}&user=${njma_user_name}&pass=${njma_user_pass}`, 
+            {
+                method: "get",
+                headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                // body
+            }
+        )
         if (response.ok) {
             let json = await response.json()
 
@@ -163,12 +169,34 @@ document.addEventListener("DOMContentLoaded", async () => {
                     div.innerHTML = `<p>Пусто</p>`
                     njma_page.append(div)
                 }else {
-                    json.result.forEach(i => {
-                        let div = document.createElement('div')
-                        div.className = "table_selected_item"
-                        div.innerHTML = `<p>${JSON.stringify(i)}</p>`
-                        njma_page.append(div)
+
+                    // Вывод на экран данных из таблицы
+                    let oneTime = true
+                    let table = document.createElement('table')
+                    table.className = "table_selected_item"
+                    let innerHTML = ``
+                    json.result.forEach(obj => {
+                        // table.innerHTML = `<p>${JSON.stringify(obj)}</p>`
+                        if (oneTime) {
+                            innerHTML += `<thead><tr>`
+                            for (key in obj) {
+                                innerHTML += `<td>${key}</td>`
+                            }
+                            innerHTML += `</tr></thead><tbody>`
+                            innerHTML += `<tbody>`
+                        }
+                        innerHTML += `<tr>`
+                        for (key in obj) {
+                            innerHTML += `<td>${obj[key]}</td>`
+                        }
+                        innerHTML += `</tr>`
+
+                        oneTime = false
+                        
                     })
+                    innerHTML += `</tbody>`
+                    table.innerHTML = innerHTML
+                    njma_page.append(table)
                 }
             }else {
                 njma_page.innerHTML = `Ошибка...`

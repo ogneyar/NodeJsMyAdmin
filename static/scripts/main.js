@@ -140,22 +140,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         let njma_page = document.getElementById("njma_page")
         njma_page.innerHTML = `загрузка данных...`
-
-        // let body = JSON.stringify({
-        //     name,
-        //     db_name: njma_db_name,
-        //     user: njma_user_name,
-        //     pass: njma_user_pass
-        // })
         
         let limit = document.getElementById("limit")
         let njma_limit = limit.value
 
-        let response = await fetch("/api/table/select" + `?name=${name}&db_name=${njma_db_name}&limit=${njma_limit}&user=${njma_user_name}&pass=${njma_user_pass}`, 
+        let request = {
+            name,
+            db_name: njma_db_name,
+            limit: njma_limit,
+            user: njma_user_name,
+            pass: njma_user_pass
+        }
+
+        let strHttpReq = parseObjectToHttpRequest(request)
+
+        // let response = await fetch("/api/table/select" + `?name=${name}&db_name=${njma_db_name}&limit=${njma_limit}&user=${njma_user_name}&pass=${njma_user_pass}`, 
+        let response = await fetch("/api/table/select" + strHttpReq, 
             {
                 method: "get",
                 headers: { 'Content-Type': 'application/json; charset=utf-8' },
-                // body
             }
         )
         if (response.ok) {
@@ -206,6 +209,21 @@ document.addEventListener("DOMContentLoaded", async () => {
             njma_page.innerHTML = `Ошибка...`
             alert("Ошибка HTTP: " + response.status)
         }
+    }
+
+    const parseObjectToHttpRequest = (obj) => {
+        let str = ""
+        let oneTime = true
+        for (key in obj) {
+            if (oneTime) {
+                str += "?"
+                oneTime = false
+            }else {
+                str += "&"
+            }
+            str += `${key}=${obj[key]}`
+        }
+        return str
     }
 
 })

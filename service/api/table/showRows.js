@@ -9,7 +9,7 @@ const conector = require('../../../db')
 // pass - user password
 // host - by default = "localhost"
 */
-async function showRows(name, db_name, limit, user, pass, host = "") {
+async function showRows({ name, db_name, limit, user, pass, host }) {
     
     if ( ! name ) return { ok: false, error: "Отсутствует параметр name." }
     
@@ -27,7 +27,9 @@ async function showRows(name, db_name, limit, user, pass, host = "") {
 
         await new Promise((resolve, reject) => {
             // db.query("SELECT * FROM ?", [name], (error, result, fields) => {
-            db.query(`SELECT * FROM ${name} LIMIT ${limit}`, (error, result, fields) => {
+            let query= `SELECT * FROM ${name}`
+            if (limit != 0) query += ` LIMIT ${limit}`
+            db.query(query, (error, result, fields) => {
                 if (error) {
                     response.error = error
                 }else {

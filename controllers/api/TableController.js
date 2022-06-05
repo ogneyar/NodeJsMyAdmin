@@ -7,7 +7,7 @@ class TableController {
     async select(req, res) {
         // name = table name
         let { name, db_name, limit, user, pass, host } = req.params // JSON.parse(req.body)
-        let response = await showRows(name, db_name, limit, user, pass, host)
+        let response = await showRows({ name, db_name, limit, user, pass, host })
 
         res.send(response)
         return true

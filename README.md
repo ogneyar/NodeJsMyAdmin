@@ -1,5 +1,5 @@
 # NodeJsMyAdmin (still in the process of development)
-## NPM library
+## NPM library 
 
 <p align="center">
   <img src="https://github.com/ogneyar/NodeJsMyAdmin/blob/master/static/images/NJMA%20logo.bmp" alt="NodeJsMyAdmin Logo" width="120px" >
